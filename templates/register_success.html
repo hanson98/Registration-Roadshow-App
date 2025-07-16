@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Success!</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Tailwind CSS (optional, but good for custom styling if needed alongside Bootstrap) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom styles to match the register.html color scheme and font */
+      body {
+        background: linear-gradient(
+          to right,
+          #fdf6ee,
+          #f7f7f7
+        ); /* Background from register.html */
+        font-family: "Segoe UI", sans-serif; /* Font from register.html */
+        color: #333; /* Text color from register.html */
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Ensure it takes full viewport height */
+      }
+      .success-container {
+        max-width: 600px; /* Limit width for better readability */
+        padding: 2.5rem; /* Padding from form-wrapper in register.html */
+        border-radius: 1.2rem; /* Border-radius from form-wrapper in register.html */
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1); /* Shadow from form-wrapper in register.html */
+        background-color: #ffffff; /* White background for the card */
+        width: 100%; /* Ensure it takes full width up to max-width */
+      }
+      h1 {
+        font-weight: 600; /* Similar to h3 in register.html */
+        color: #222; /* Similar to h3 in register.html */
+        text-align: center;
+        margin-bottom: 1.5rem; /* Adjusted margin for spacing */
+      }
+      .lead {
+        font-size: 1.25rem; /* Standard lead text size */
+        line-height: 1.6; /* Improved readability */
+        color: #555; /* Slightly darker text for better contrast */
+      }
+      /* Style for the telephone link */
+      .contact-link {
+        color: #0d6efd; /* Bootstrap primary blue, or match your theme */
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container text-center">
+      <!-- Main congratulatory heading -->
+      <h1 class="mb-4">Congratulations!</h1>
+      <!-- Sub-text providing more context -->
+      <p class="lead mb-3">
+        Thank you for expressing your interest and registering for this
+        exclusive property invitation. Our team will be in touch shortly to
+        provide comprehensive details and discuss how our expert property
+        advisors can assist you.
+      </p>
+      <!-- Added contact information as a clickable phone link -->
+      <p class="text-muted mb-0">
+        Contact:
+        <a href="tel:+60162132712" class="contact-link">016-2132-712</a>
+      </p>
+      <!-- The "Go to Home" button has been removed as requested -->
+    </div>
+
+    <!-- Bootstrap JS (optional, only if you need Bootstrap's JavaScript components) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

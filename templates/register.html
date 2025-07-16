@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %} {% block
+content %}
+<style>
+  body {
+    background: linear-gradient(to right, #fdf6ee, #f7f7f7);
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+    margin: 0;
+  }
+
+  section.fullscreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .form-wrapper {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .btn-gold {
+    background-color: #d4af37;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background-color: #b89d2f;
+  }
+
+  .text-danger {
+    font-size: 0.85rem;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+  }
+</style>
+
+<section class="fullscreen">
+  <div class="form-wrapper">
+    <h3 class="mb-4">Register Your Interest</h3>
+
+    <form method="POST" action="{{ url_for('registration') }}" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        {{ form.phone.label(class="form-label") }} {{
+        form.phone(class="form-control") }} {% for error in form.phone.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.name.label(class="form-label") }} {{
+        form.name(class="form-control") }} {% for error in form.name.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.email.label(class="form-label") }} {{
+        form.email(class="form-control") }} {% for error in form.email.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="text-center">{{ form.submit(class="btn btn-gold") }}</div>
+    </form>
+  </div>
+</section>
+{% endblock %}

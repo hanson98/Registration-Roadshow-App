@@ -1,0 +1,23 @@
+# Python specific files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment directory
+# Your virtual environment is named '.venv' in the screenshot
+.venv/
+
+# Environment variables file (contains sensitive keys)
+.env
+
+# IDE specific files (if you use VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Flask specific (if you have an 'instance' folder for config/db)
+instance/
+
+# Other common temporary files
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
