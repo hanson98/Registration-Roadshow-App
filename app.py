@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import (
     Bootstrap5,
 )  # Optional if you're using your own Bootstrap via CDN
@@ -9,6 +9,7 @@ import requests
 from dotenv import load_dotenv
 import os
 from twilio.rest import Client
+import time
 
 
 load_dotenv()
@@ -55,33 +56,45 @@ def registration():
         account_sid = os.environ["TWILIO_ACCOUNT_SID"]
         auth_token = os.environ["TWILIO_AUTH_TOKEN"]
         client = Client(account_sid, auth_token)
+
+        message = client.messages.create(
+            body=f"Prospect Name: {data['name']},\n\nNumber: {data['phone']}",
+            from_="whatsapp:+14155238886",
+            to=f"whatsapp:+60162132712",
+        )
+
         msg = (
             f"Hi {data['name']},\n\n"
-            "Thank you for expressing your interest and registering for this exclusive property invitation."
-            "Our team will be in touch shortly to provide comprehensive details and discuss how our expert property advisors can assist you.\n\n"
-            "For immediate assistance, please feel free to contact us at 016-2132-712.\n\n"
-            "Regards,\n"
-            "IX Group,\n"
-            "May Tang"
+            "Thank you for registering your interest in our exclusive property project near KLCC.\n"
+            "Our team will reach out shortly with full details and to explore how our expert advisors can assist you.\n\n"
+            "If you have any questions in the meantime, feel free to WhatsApp or call us at 016-2132-712.\n\n"
+            "Warm regards,\n"
+            "May Tang\n"
+            "IX Group"
         )
+
+        time.sleep(0.5)
+
         print(data["phone"])
         try:
             message = client.messages.create(
                 body=msg,
                 from_="whatsapp:+14155238886",
-                to=f"whatsapp:+6{data['phone']}",
+                to=f"whatsapp:+60162132712",
             )
             print(message.status)
         except:
             pass
 
-        return redirect(url_for("success"))
+        print("Data being sent to success page:", data["name"])
+        return redirect(url_for("success", name=data["name"]))
     return render_template("register.html", form=form)
 
 
 @app.route("/success")
 def success():
-    return render_template("register_success.html")
+    name = request.args.get("name", "there")
+    return render_template("register_success.html", name=name)
 
 
 if __name__ == "__main__":
